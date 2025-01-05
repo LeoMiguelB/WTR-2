@@ -9,49 +9,64 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     >
-    <title>Work Term 1 - Leo Bantolino</title>
+    <title>Work Term 2 - Leo Bantolino</title>
   </head>
-  <body>
-    <main class="container" style="padding-top: 100px;">
+  <body style="display: flex; flex-direction: column; align-items: center;">
+    <main class="container">
       <article>
-        <h1>Work Term 1 - Leo Bantolino</h1>
-        <h2>Introduction</h2>
+        <div style="display: flex; justify-content: center; width: 100%; flex-direction: column; align-items: center; padding-bottom: 2rem;">
+          <img src="./assets/MF.png" alt="magnet forensics logo" width="200px"/>
+          <h1>Work Term 2 - Leo Bantolino</h1>
+        </div>
+        <h2>Abstract</h2>
         <p>
-          During this work term, I worked under Dr. Prasad Daggupati, who leads the Watershed Research Group at the School of Engineering, University of Guelph. I was primarily a full-stack developer, where I was heavily involved in rebuilding the backend infrastructure of our <a href="https://www.uoguelph.ca/watershed/w3s/">application</a>. Additionally, I contributed to developing new UI features and fixing critical bugs.
+            During my second work term, which began in the Fall of 2024, I had the privilege of working at Magnet Forensics, the leading provider of digital investigation software. Their software acquires, analyzes, and shares evidence from computers, smartphones, and tablets. Although the position was remote, gatherings were held at the main office in Kitchener, Waterloo. Throughout my term, I contributed to various initiatives, including building internal tools and migrating code.
         </p>
-        
 
-
-        <h2>Watershed Research Group</h2>
+        <h2>Magnet Forensics</h2>
         <p>
-          The project was started way back during covid by a University of Guelph alumni, Dr. Taimoor Akhtar. During a walk with Dr. Prasad Daggupati and others at the Arboretum on campus, they realized a major pain point for hydrological research was getting data they needed, be it in CSV or <a href="https://swat.tamu.edu/media/69395/ch32_output.pdf">SWAT</a> format. They then built an application that did just that. Through this application, users can select an area and request precipitation or temperature data and further subset it using date bounds. This eliviated the pain of having to write scripts just to subset data in compressed formats such as NetCDF and format it into something usable such as CSV or SWAT.
+            Magnet Forensics' mission statement is "Unlock the truth. Protect the innocent," which truly reflects their commitment to providing software that aids law enforcement and government agencies in acquiring and analyzing digital evidence. During my time there, I was impressed by the number of teams and the complexity of a single product. For instance, Magnet Axiom, one of their many products, consists of two main components: Process and Examine. Each of these components is made up of numerous internal libraries, each developed by different teams. This level of detail and care ensures the high quality of their products, solidifying Magnet Forensics as the leading provider of digital investigation software. Moreover, another interesting fact is that every development team has a unique mascot; my team's mascot was a Platypus.
         </p>
-        <img src="./assets/watershed.jpg" alt="river basin" />
-
 
         <h2>Goals</h2>
         <ul>
           <li>
             <article>
-              <h3>Become more proficient as a web developer with R Shiny</h3>
+              <h3>Contribute to building a .NET internal tool. 👨‍💻</h3>
               <p>
-                During the course of my work term, I learned about new design patterns and how patterns from other frontend frameworks overlapped with R Shiny. For example, one similarity between React and R Shiny is that both support reactivity. I aimed to explore these concepts by proactively suggesting feature ideas to my supervisor and ensuring I received feedback. Through various tasks, I gained insights into the internal structures of R Shiny and how the framework operates under the hood. This knowledge enabled me to fix critical issues, such as when our application crashed due to users refreshing pages while a multi-threaded operation was running in a server module. The solution involved offloading the operation to our PostGIS database and using spatial queries instead of R's sf operations for processing.
+                This goal was my primary focus throughout the work term. It was a crucial item on our team's roadmap, as this internal tool aimed to enhance our existing testing suite. The tool helped developers ensure that their changes did not break any existing logic, thereby maintaining quality. My plan of action involved participating in design discussions, writing code, and testing. By the end of my term, the tool's foundation was built and was able to consume 90% of the required inputs. Additionally, this experience allowed me to deepen my understanding of .NET, C#, AWS Services, and Azure Pipelines.
               </p>
             </article>
           </li>
           <li>
             <article>
-              <h3>Enhance my knowledge in test driven development</h3>
+              <h3>Take part in forensics product development. 🔎</h3>
               <p>
-                One of my first major tasks was configuring a test suite and implementing integration and unit tests. Through my university courses, I was accustomed to frameworks like unittest and JUnit. However, since our application was data-centric, I had to carefully plan my approach. I ultimately chose to use pytest and pytest-postgres, which made creating mock databases seamless. This setup allowed for the separation of environments, as the mock database ran inside a live Docker container. Integration and unit tests facilitated easy regression testing, making the implementation of new features faster. Toward the end of my term, I ran pytest-cov, which generated a coverage report, and I achieved 67% overall code coverage 🎉.
+                I had the privilege of contributing to a critical migration project, which became a key focus of my action plan. This migration aimed to restructure our domain boundaries in collaboration with another team, enabling us to perform tasks that were previously impossible, such as writing functional tests for specific code features. Throughout the migration process, I wrote, probed, and refactored a significant amount of code, receiving invaluable feedback from my team members. This experience greatly enhanced my critical thinking skills, which will be beneficial for my future work terms. By the end of my term, my first migration was successfully completed, while the second had to be reverted due to performance issues. However, this provided me with valuable insights into the various factors that can impact a change.
               </p>
             </article>
           </li>
           <li>
             <article>
-              <h3>Become Better At Automating Tasks</h3>
+              <h3>Develop a tool that utilizes AWS services. ☁️</h3>
               <p>
-                At the start of my term, one major issue was that spatial data in the database had to be manually updated, a process that would normally take hours. I resolved this by building Python modules that utilized data manipulation packages such as PyDAP, which enabled on-the-fly data fetching, along with Pandas and NetCDF4. I learned various optimization techniques, such as batching to minimize memory load and using vectorized operations in Pandas for faster data processing. Additionally, I applied my automation skills in other areas. Our application was hosted on-premises, meaning I worked in a multi-tenant server environment, which introduced permission errors when building containers. As a result, building application containers had to be done by one person; otherwise, builds would fail due to permission issues. I addressed this by setting up continuous integration pipelines using <a href="https://forgejo.org/docs/v1.20/user/actions/">Forgejo Actions</a>, automating the building of images and their upload to an image registry. This setup allowed for easy automatic container re-runs with <a href="https://github.com/containrrr/watchtower">Watchtower</a>.
+                Prior to this work term, I had experience working with Azure services such as Azure Functions and Azure Key Vault. However, I had no experience with AWS services. This goal provided a great opportunity for me to learn about AWS services and understand how they differ from Azure services. I was fortunate that the internal tool I was building utilized many AWS services, including CloudFront, S3, and Lambda functions. One major task that required careful planning was designing a secure communication method for our pipeline to interact with our S3 storage. Given the numerous teams and accounts in our organization, this was a complex task. I collaborated with the lead developer on the project and gained exposure to managing and setting up roles, as well as designing roles to ensure appropriate accounts were able to assume the roles. By the end of my term, I felt more confident in my knowledge of AWS services, which will be an invaluable asset in my upcoming terms.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3>Build robust Azure Pipelines to build and dispatch our internal tool. 🖇️</h3>
+              <p>
+                One of the major requirements for our internal tool was to have a pipeline that could build it and dispatch jobs to run tests. We decided to use Azure Pipelines as we were already utilizing the Azure DevOps suite. This goal provided a great opportunity for me to learn about Azure Pipelines and how to set them up. I ultimately acquired various skills on the job, such as scripting in PowerShell, calling AWS services from Azure Pipelines, and delving into the internal workings of Azure Pipelines, such as understanding the differences between template expressions and runtime expressions. By the end of my term, I successfully built a pipeline that could build the tool and dispatch jobs to run tests.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3>Learn and apply design patterns. ✏️</h3>
+              <p>
+                Prior to this work term, I had little experience with design patterns and always thought they were no different from object-oriented principles. I was dreadfully wrong, as I learned the importance of both in the context of building enterprise software. Through various design discussions with my team on building certain components of our tool, I was able to experience conversations utilizing design patterns. I was exposed to not just the implementation of the design patterns but also the reasoning on why they were chosen. The center of conversations that I encountered most often revolved around the perspective of a consumer, which would, in most cases, dictate which principle to apply. Ultimately, by the end, I was able to gain a deeper understanding of how design patterns were used.
               </p>
             </article>
           </li>
@@ -60,18 +75,18 @@
 
         <h2>Job Description</h2>
         <p>
-          Overall, I was very fortunate to participate in a project that allowed me to maximize my learning and apply my existing knowledge through the various challenges that arose. I wasn't simply a full-stack developer; I also learned to tackle a variety of problems and communicate effectively with other experts, such as our system administrator. I gained insights into the intricacies of on-premises infrastructure and had the opportunity to learn about its internal workings when we encountered network issues among our containers. For instance, when there were problems with inter-container communication, I had to understand how Docker implemented isolated networks and the different chains it created in the UFW application. This experience allowed me to apply and expand my existing knowledge of operating systems. Moreover, overseeing operations in both the backend and frontend, as well as managing builds and deployments on-premises, taught me the pros and cons of on-premises hosting and where cloud solutions offer advantages.
+            As highlighted in my goals, my main contribution was building an internal tool to replace our existing regression test suite. The new tool provided greater flexibility within a more compact form compared to the existing suite, which was considered bloated and due for replacement. Throughout this endeavor, I had the opportunity to interact with many teams, as our tool was a consumer of other teams' products. This allowed me to network beyond my immediate domain and gain a better understanding of how different teams contribute to Magnet Forensics' products. Additionally, I worked on various parts of the codebase due to the code migrations I performed, which provided valuable exposure. The skills required for this job included knowledge of AWS services, C#, .NET, Azure Pipelines, Blazor, and PowerShell. While majority these skills were learned on the job, the foundation I gained from my object-oriented programming course was instrumental in understanding the codebase and the design patterns used.
         </p>
         
 
         <h2>Conclusion</h2>
         <p>
-          My term was full of great experiences, and I had the opportunity to meet various people, including the original author of the application, Dr. Taimoor Akhtar, who now works for Microsoft. From refactoring and rebuilding a backend codebase to implementing UI features in the frontend, I was able to learn and apply my knowledge in areas where I initially did not see software development as being applicable. Ultimately, I believe this work term experience made me a better developer, and with the on-premises infrastructure knowledge I gained, I believe it will be an essential asset in my future work terms.
+            My time at Magnet Forensics has been incredibly rewarding and enjoyable. I've gained valuable insights through working on various projects and collaborating with different teams. This experience has deepened my understanding of software development and the importance of quality assurance. Working with modern technologies such as AWS services, Azure Pipelines, and Blazor has been invaluable for my professional growth. I am grateful for the opportunity to work with such a talented group of individuals and contribute to the development of software that aids in solving crimes. I look forward to applying the skills I've acquired in my future work terms and beyond.
         </p>
 
-        <h2>Ackowledgements</h2>
+        <h2>Ackowledgements 👋</h2>
+            I would like to extend my heartfelt gratitude to Anda, my manager, for the extremely valuable one-on-one sessions we had. These sessions provided me with insights into various career paths and possibilities beyond just software engineering. I also want to thank Morgan, the lead developer I worked with, for always offering a helping hand and explaining concepts in an understandable manner. Lastly, I want to thank my entire team for being so welcoming and supportive throughout my term. I couldn't have asked for a better team to work with.
         <p>
-          I would like to thank Dr. Prasad Daggupati for giving me the opportunity to work under him, Steven Mugisha Mizero for recommending solutions and providing insights into areas I was not familiar with, and Mugesh Raj Krishnamoorthy for colloborating on the project.
         </p>
       </article>
     </main>
